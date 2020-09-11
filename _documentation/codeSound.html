@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Jhonatan Lopez Pilco" />
+  <meta name="keywords" content="codeSound, audio, visual, sound, design, originality, digital" />
+  <meta name="afiliation" content="University of Edinburgh" />
+  <title>codeSound</title>
+  <title>codeSound: Inspiration for audio-visual composers and how to sound original using digital tools</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    table {border-collapse: collapse; width: 100%;}
+    th, td {padding: 8px; text-align: left; border-bottom: 1px solid #ddd; border: 1px solid #ddd;}
+    tr:hover {background-color:#f5f5f5;}  
+    </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+
+</header>
+<h1 class="title" id="codesound-inspiration-for-audio-visual-composers-and-how-to-sound-original-using-digital-tools">codeSound: Inspiration for audio-visual composers and how to sound original using digital tools</h1>
+<p>JHONATAN LOPEZ PILCO</p>
+<p>August 2020</p>
+<p><em><br />
+</em></p>
+<p><em>Submitted in part fulfilment of the requirements for the degree of Master of Science in Sound Design.</em></p>
+<p><em>Reid School of Music, Edinburgh College of Art, University of Edinburgh, UK.</em></p>
+<h2 class="list-paragraph" id="section"></h2>
+<h2 class="Style1" id="abstract">Abstract</h2>
+<p>This paper sets out to provide inspiration for audio-visual composers by describing a series of processes that were developed to create an audio-visual system based on visual media and music code. The aim is to provide insight into how to sound original using digital tools, and to provide advice on the efficient use and adaptation of those tools.</p>
+<p>A brief introduction to creativity and audio-visual systems is provided, followed by practical advice on: compatibility with peripherals; what is possible when expanding an audio visual system for composition and performance; the use of Copyright, Copyleft, and alternatives to protect new forms of expression.</p>
+<p>The development of the system resulted in a number of discoveries, and three of these form the main themes of this paper that complement the description of the system design:</p>
+<ul>
+  <li><p><strong>Theme 1 - Using Digital Tools Efficiently</strong>: It was necessary to overcome challenges in finding the most efficient way of using digital tools to create an audio-visual composition that balances both human creativity and computer interaction.</p></li>
+  <li><p><strong>Theme 2 - Adapting Technology</strong>: Technology can be incredibly powerful, but it needs to be harnessed and adapted to suit the situation.</p></li>
+  <li><p><strong>Theme 3 - Being Original</strong>: Originality can be difficult to define in the context of rapidly evolving technology and artificial intelligence, especially when open-source software is used as the foundation.</p></li>
+</ul>
+<p>The techniques described throughout the paper demonstrate how true originality can be driven through the imaginative transformation of existing technologies using ideas, knowledge and experience to create fresh and captivating audio-visual compositions.</p>
+<h2 class="Style1" id="contents">Contents</h2>
+<p><a href="#abstract">1. Abstract 3</a></p>
+<p><a href="#contents">2. Contents 4</a></p>
+<p><a href="#list-of-tables">3. List of tables 5</a></p>
+<p><a href="#list-of-figures">4. List of Figures 5</a></p>
+<p><a href="#acknowledgements">5. Acknowledgements 6</a></p>
+<p><a href="#introduction">6. Introduction 7</a></p>
+<p><a href="#_Toc48683553">6.1 Project Scope 7</a></p>
+<p><a href="#significance-of-the-work">6.2 Significance of the Work 7</a></p>
+<p><a href="#influences">6.3 Influences 7</a></p>
+<p><a href="#approach">6.4 Approach 7</a></p>
+<p><a href="#theme-1---using-digital-tools-efficiently">7. Theme 1 - Using Digital Tools Efficiently 8</a></p>
+<p><a href="#_Toc48683559">7.1 An Audio-Visual System 8</a></p>
+<p><a href="#audio-visual-in-real-time">7.2 Audio-Visual in Real-Time 8</a></p>
+<p><a href="#open-source-software">7.3 Open-Source Software 8</a></p>
+<p><a href="#technology-as-a-tool">7.4 Technology as a Tool 8</a></p>
+<p><a href="#digital-tools">7.5 Digital Tools 9</a></p>
+<p><a href="#maxmspjitter-visual-programming-language">7.6 Max/MSP/Jitter Visual Programming Language 9</a></p>
+<p><a href="#connecting-peripherals">7.7 Connecting Peripherals 9</a></p>
+<p><a href="#raspberry-pi-4">7.8 Raspberry PI 4 10</a></p>
+<p><a href="#crossing-data">7.9 Crossing Data 10</a></p>
+<p><a href="#theme-2---adapting-technology">8. Theme 2 - Adapting Technology 11</a></p>
+<p><a href="#_Toc48683570">8.1 The Interaction of Digital Tools 11</a></p>
+<p><a href="#the-sound">8.2 The Sound 11</a></p>
+<p><a href="#modifications-to-the-feedback-system">8.3 Modifications to the Feedback System 12</a></p>
+<p><a href="#the-visuals">8.4 The Visuals 15</a></p>
+<p><a href="#how-the-visual-system-works">8.5 How the visual system works 16</a></p>
+<p><a href="#examples-of-the-particles-system-in-action">8.6 Examples of the Particles System in Action 17</a></p>
+<p><a href="#building-standalone-applications">8.7 Building standalone applications 17</a></p>
+<p><a href="#_Toc48683577">8.8 How to Connect Both Sound and Visual Systems 18</a></p>
+<p><a href="#_Toc48683578">8.9 The Final Composition 21</a></p>
+<p><a href="#_Toc48683579">9. Theme 3 - Being Original 22</a></p>
+<p><a href="#_Toc48683581">9.1 Creativity and Digital Technology 22</a></p>
+<p><a href="#originality-and-copyright">9.2 Originality and Copyright 22</a></p>
+<p><a href="#copyleft">9.3 Copyleft 23</a></p>
+<p><a href="#creative-commons">9.4 Creative Commons 23</a></p>
+<p><a href="#protecting-originality-in-the-digital-age">9.5 Protecting Originality in the Digital Age 24</a></p>
+<p><a href="#conclusions">10. Conclusions 25</a></p>
+<p><a href="#references">11. References 26</a></p>
+<h2 class="Style1" id="list-of-tables">List of tables</h2>
+<p><a href="#_Toc47055956">Table 1 Raspberry Pi Models Avalible 8</a></p>
+<p><a href="#_Toc48500011">Table 2 Creative Commons Licences 22</a></p>
+<h2 class="Style1" id="list-of-figures">List of Figures</h2>
+<p><a href="#_Toc47056073">Figure 1 Example Limited feedback stereo (Cipriani, Giri, 2014, 446) 10</a></p>
+<p><a href="#_Toc47056074">Figure 2 New source implemented. 11</a></p>
+<p><a href="#_Toc47056075">Figure 3 Six LFOs oscillators 12</a></p>
+<p><a href="#_Toc47056076">Figure 4 LFOs with different waveshapes used in the feedback system. 12</a></p>
+<p><a href="#_Toc47056077">Figure 5 Automatic data receiver. 13</a></p>
+<p><a href="#_Toc47056078">Figure 6 Feedback patch after modifications. 14</a></p>
+<p><a href="#_Toc47056079">Figure 7 Particles systems two dimensions and three dimensions. 15</a></p>
+<p><a href="#_Toc47056080">Figure 8 Capture of the particles system in action. 16</a></p>
+<p><a href="#_Toc47056081">Figure 9 Interface codeSound standalone application. 16</a></p>
+<p><a href="#_Toc47056082">Figure 10 Mouse integration to sound and visuals 18</a></p>
+<p><a href="#_Toc47056083">Figure 11 Video settings. 19</a></p>
+<p><a href="#_Toc47056084">Figure 12 Advance Output Visuals Recording Settings. 20</a></p>
+<h2 class="Style1" id="acknowledgements">Acknowledgements</h2>
+<p>To Mum and Dad.</p>
+<p>Thanks Laurie for reading and editing my English and Virgi for encourage and push me to be better, Domenic and Dana for show me that there are always energy to do things.</p>
+<p>Family, I cannot write all your names but that just means that I have to write more to mention every single of you.</p>
+<p>Martin and Tom, thanks for inspiring me, give me tools and reasons to keep going in this loud journey.</p>
+<h2 class="Style1" id="introduction">Introduction</h2>
+<h2 class="Style2" id="project-scope">Project Scope</h2>
+<p>This paper describes the process of composing original music by employing a visual programming language, contemporary code, and commercial and open-source music software that accelerates the workflow process whilst enhancing creativity through external computer tools.</p>
+<h2 class="Style2" id="significance-of-the-work">Significance of the Work</h2>
+<p>The project enabled an exploration of how a sound system can be connected to another digital system and the extent to which technology can assist in composing original music. In so doing it highlighted the need for new forms of protection for such new types of artistic expression.</p>
+<h2 class="Style2" id="influences">Influences</h2>
+<p>The main influences on the development of this project were:</p>
+<ul>
+<li><p>Michael Gary Dean “wikilow” and Cadie Desbiens-Desmeules “push 1 stop” from the project Membrane. The experience of these media artists on merging installation and live performance was insightful.</p></li>
+<li><p>Ryoichi Kurokawa. The work of this renowned audio visual artist was inspirational, and his detachment from any particular technology was enlightening.</p></li>
+<li><p>Jessica In and Dara Etefaghi. These two contemporary code art developers were useful resources to draw upon, especially in the use of code as the main source and the generation of 3D audio-visual systems.</p></li>
+</ul>
+<h2 class="Style2" id="approach">Approach</h2>
+<p>The project progressed in a series of iterations, confronting challenges in both the audio and visual systems by experimentation until a solution was found, followed by integration to connect the audio and visual systems with the control system. In the audio system the challenge was to find a large number of sonorities (40 different preset sounds), then adding and multiplying signal (wave forms, impulse response, LFOs, filters, modulators), and finally modifying system parameters and source code (amplitude, frequency, offset, threshold attack, release and sample rate in sound system or forces and number of particles in visuals). In the video system the main challenge was to simplify the code to obtain a balance between audio signal processing and video.</p>
+<h1 class="Style1" id="theme-1---using-digital-tools-efficiently">Theme 1 - Using Digital Tools Efficiently</h1>
+<p>This chapter provides guidance on the efficient use of digital tools based on the experience of building the audio-visual system.</p>
+<h2 class="Style2" id="an-audio-visual-system">An Audio-Visual System</h2>
+<p>An audio visual-system is a combination of a musical instrument and a visual system controlled by a peripheral. The objective of an audio-visual system that enables simultaneous composition and performance is that it generates visual images and sound in real-time in the most efficient way possible for a live presentation. To achieve this it is necessary to use an external source (mouse, keyboard, joystick or any other peripheral<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>) connected to a computer to generate visual images. This external source simultaneously transmits data to a connected digital musical instrument.</p>
+<h2 class="Style2" id="audio-visual-in-real-time">Audio-Visual in Real-Time</h2>
+<p>‘Membrane’<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> is an example of an audio-visual composition and performance in real-time system where two creators Michael Gary Dean “wikilow” and Cadie Desbiens-Desmeules “push 1 stop” worked in a generative audio-visual system which merges installation and live performance, to create an immersive environment in which the audience can experience a digital audio-visual composition. When interviewed the artist described how the challenge is to bring the digital world to reality, and to find a way of arranging, reorganizing and replaying in a live environment. This is an example of how audio visual composition has evolved to connect two worlds and to generate interaction between the artist, audience and machines to exhibit their combined distinctive capabilities in a live performance. In the ‘codeSound’<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> audio-visual system that is the subject of this paper, a similar system has been created that restructures the code, thereby reducing the amount of gear to make it possible to perform on a computer on stage.</p>
+<h2 class="Style2" id="open-source-software">Open-Source Software</h2>
+<p>In an interview<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> (Grosse, 2020), Alex Braga describes ‘A-Mint’ - a virtual instrument that creates real-time orchestration and visual art - as “a tool to enhance yourself, and your capabilities and to enhance your creativity in real-time”. There is no a particular way to create music or any specific instrument to develop skills to compose and perform music, however there is commercial and open-source software (such as that which has been used in developing the system described in this paper) that can be used to create systems for composition and performance, including: pure data; max/msp; jitter; reaper, and many others.</p>
+<h2 class="Style2" id="technology-as-a-tool">Technology as a Tool</h2>
+<p>Computers become more powerful every day, and they are capable of handling increasingly complex tasks and achieving better results. Such enhancements in hardware capabilities have enabled computers to become part of the creative process. This is an inevitable trend, not only in audio-visual composition and performance, a major focus is to ensure that quality and efficiency emerge as part of this trend. By closely modelling our creative processes and interpreting this into code, computers can be used as a simple tool for artistic creation – but never a replacement for inspiration. (Bruce, 1996). With reference to his work ‘Synesthetic Sensory Stimulation’, Ryoichi Kurokawa comments, ”I generally avoid becoming attached to gear, I prefer to change my system for each concert”. This reminds us that technology is a tool that should be harnessed and adapted as a means of enabling and exhibiting human creativity and originality.</p>
+<h2 class="Style2" id="digital-tools">Digital Tools</h2>
+<p>A key feature of digital instruments is that they can be flexible in their internal structure, allowing encoding, data processing, the transmission of information and its conversion into sound and music - complexity that is often well beyond human capability. Computers are an excellent instrument for generating sound, managing composition systems, executing algorithmic notes and generating music, and although digital technology cannot replace the warmth and smoothness of sound in an analogue domain, its adaptability is its main strength. Maggnusson (Maggnusson, 2019) states that one of the main “recurrent problems in a digital domain is the interface, both in terms of performance and the notational languages available". Limitations like this are inevitable in the context of rapid software development, and include complex legal aspects such as: the appropriation of ideas; Copyright and Copyleft; and the conflicting interests between software companies and numerous ambitious DIY developers and communities releasing GPL (General Public Licences) software. However, it could be argued that a dynamic environment is crucial to creativity and the continued expansion and evolution of digital music technology and tools.</p>
+<h2 class="Style2" id="maxmspjitter-visual-programming-language">Max/MSP/Jitter Visual Programming Language</h2>
+<p>One starting point when considering digital tools is to look at the software available. Plenty of sound design software is available to generate sound, synthesise, store samples and reproduce sounds in real-time (Max/MSP/jitter, pure data, super collider, vcv rack, open frameworks, orca, and many others). One that is regularly updated is Max. The versatility of Max is that can it handle sound and images at the same time. This type of visual programming encodes objects written in C++, encapsulating small pieces of code to make the workflow more efficient with a focus on the sound. Additionally, the standalone application feature makes Max a great tool to design virtual instruments.</p>
+<h2 class="Style2" id="connecting-peripherals">Connecting Peripherals</h2>
+<p>Another important feature of Max/MSP/jitter and Pure Data software is that the user is allowed to cross between computer-generated sound (synthesis) to ‘sound digital art’ in a live performance. Arduino, and Raspberry PI, are the two most popular options for prototyping. They connect with some peripherals. Some of the most recent versions of Raspberry Pi are listed in the next table.</p>
+<p><span id="_Toc47055956" class="anchor"></span></p>
+<p>Table 1 Raspberry Pi Models Avalible</p>
+<table>
+<thead>
+<tr class="header">
+<th><strong>Model</strong></th>
+<th><strong>Data Tech</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Pi 4</td>
+<td>Broadcom 2711, ARM Cortex A72, Quad, 1.5GHz, 8GB – LPDDR4, Video Core VI 4kp60, 2 x micro HDMI, 2 x USB3.0 &amp; 2 x USB2.0, A/V 3.5mm Stereo.</td>
+</tr>
+<tr class="even">
+<td>Pi 3 Model A+</td>
+<td>1.4GHz 64-bit quad-core, dual-band wireless LAN, Bluetooth 4.2/BLE in the same mechanical format as the Raspberry Pi 1 Model A+</td>
+</tr>
+<tr class="odd">
+<td>Pi 3 Model B+</td>
+<td>1.4GHz 64-bit quad-core, dual-band wireless LAN, Bluetooth 4.2/BLE, faster Ethernet, and Power-over-Ethernet support (with separate PoE HAT).</td>
+</tr>
+<tr class="even">
+<td>Pi 3 Model B</td>
+<td>Wireless LAN and Bluetooth.</td>
+</tr>
+</tbody>
+</table>
+<h2 class="Style2" id="raspberry-pi-4">Raspberry PI 4</h2>
+<p>The most suitable version to connect with a Max/MSP/Jitter project is the Raspberry PI 4. The Raspberry PI 4’s high speed processor and its interconnectivity between peripheral devices through different ports makes it a great option when prototyping audio-visual projects. Similarly, Arduino have a great community at maxuino.org. which is a great option for finding projects to start work on.</p>
+<h2 class="Style2" id="crossing-data">Crossing Data</h2>
+<p>A persistent problem with Max/MSP/jitter (and any of the other audio synthesis and visual generators) is that they need to connect to other software and devices to increase their functionality, e.g. to record the software in action; to interconnect with peripherals; or between hardware projects. Lechner (Lechner, 2014) pointed to Open Sound Control (OSC)<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> as a solution to sending and receiving data between devices. This protocol allows the interconnection of computers, mobile phones, speakers, synthesizers and other electronic and multimedia devices.</p>
+<h2 class="Style2" id="other-osc-application-functionality">Other OSC Application Functionality </h2>
+<p>Other OSC application functionality includes: sensor/gesture-based electronic musical instruments; mapping non-musical data to sound; multiple-user shared musical control; web interfaces; networked LAN musical performance; WAN performance and Telepresence and Virtual Reality.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p>
+<h1 class="Style1" id="theme-2---adapting-technology">Theme 2 - Adapting Technology</h1>
+<p>This chapter demonstrates the adaptation of sound and visuals using different software tools to create an audio-visual system for composition and performance.</p>
+<h2 class="Style2" id="the-interaction-of-digital-tools">The Interaction of Digital Tools</h2>
+<p>A feature of digital tools is that they are constantly evolving in the drive to interact more effectively, powerfully and innovatively with computers. With reference to ‘Membrane’, Desbiens-Desmeules states “we really want to do audio-visual work, where both sound and visuals come from the same data, the same source”. And that is one of the main challenges in an audio-visual composition – to generate sound and visuals at the same time. In audio-visual composition it is necessary to explore and push technology to its limits. When working with digital media it is important not to become constrained by technology – rather the system should be <em>adapted</em> for different situations like a concert or a work of art.<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> In the ‘codeSound’ project, alternative tools have been tested and the varying options and relative benefits described.</p>
+<h2 class="Style2" id="the-sound">The Sound</h2>
+<p>For this composition the main sound source for the instrument is based on Alessandro Cipriani and Maurizio Giri’s noise generator incorporating feedback with controlled dynamics.</p>
+<p><img src="images/codeSoundFig1.png" style="width:6.47377in;height:4.8125in" /></p>
+<p><span id="_Toc47056073" class="anchor"></span></p>
+<p>Figure 1 Example Limited feedback stereo (Cipriani, Giri, 2014, 446)</p>
+<p>This system uses an impulse response, or a continuous specific frequency to feed a sequenced delay system which is also fed by four LFOs (Low Frequency Oscillators). These four oscillators are combined and sent to a compressor to limit the signal. The first output signal feeds the delay system in conjunction with the oscillators. This combination of oscillators and feedback generates the final output which means that every time a mouse click or button press is made to run the system a click sound will be generated (whilst the system is activated).</p>
+<p>To completely understand how the entire system works, the feedback system is dived into four different sections analogous to an acoustic physical environment:</p>
+<ol type="1">
+<li><p><strong>The source</strong> - selection from an impulse response (click) or a frequency.</p></li>
+<li><p><strong>The reflections</strong> - these are replaced by LFOs which generate and add some harmonics to the source.</p></li>
+<li><p><strong>The microphone and the recorder</strong> - this section collects the source from random oscillators and puts them together. An additional component of this section is the limiter which prevents an overflow in the system.</p></li>
+<li><p><strong>The speaker</strong> - the output of the system is sent to the main outputs and also resends as a source completing the feedback chain.</p></li>
+</ol>
+<p>An example of this technique is presented by Alvin Lucier in his self-explanatory composition, “I’m Sitting In a Room.”<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> In this example the composer records himself reading the text and playing the recording in a room, to be re-recorded in a loop. This continuous recording plus the continuous reflections of a room changes the narration, thereby converting this into a completely different recording to the original one. Both the feedback system and the composition are controlled by the operator or user in each situation.</p>
+<p>Once this patch is analysed and deconstructed by looking inside the code, it can be reverse-engineered by dividing into the sections described above, then testing the objects implemented in the patch. This process makes it possible to replicate, modify, reinvent and adapt to a new sound source.</p>
+<h2 class="Style2" id="modifications-to-the-feedback-system">Modifications to the Feedback System</h2>
+<p>Modifications to the feedback system are described with reference to the four sections described above.</p>
+<p>The first modification is in the source. This section has two possible sources - impulse or frequency. To simplify this section and create a more efficient CPU (Central Processing Unit) usage, the main source was reduced to handle impulse responses.</p>
+<p><img src="images/codeSoundFig2.png" style="width:1.61458in;height:2.31159in" /></p>
+<p><span id="_Toc47056074" class="anchor"></span></p>
+<p>Figure 2 New source implemented.</p>
+<p>A second modification was implemented in the reflections section. Three new oscillators where added to change the sound. The feedback system which originally had three LFOs now has six oscillators.</p>
+<p><img src="images/codeSoundFig3.png" style="width:6.59375in;height:2.6033in" /></p>
+<p><span id="_Toc47056075" class="anchor"></span></p>
+<p>Figure 3 Six LFOs oscillators</p>
+<p>The oscillator objects were modified for oscillators with different waveshapes.</p>
+<p><img src="images/codeSoundFig4.png" style="width:6.30449in;height:4.85417in" /></p>
+<p><span id="_Toc47056076" class="anchor"></span></p>
+<p>Figure 4 LFOs with different waveshapes used in the feedback system.</p>
+<p>Another feature used to modify the system is an automatic data receiver which is modifies oscillators, amplitude and offset. Adjustment of parameters enables the modification of sound according to the interaction between mouse, visuals and instruments.</p>
+<p><img src="images/codeSoundFig5.png" style="width:6.72222in;height:3.78125in" /></p>
+<p><span id="_Toc47056077" class="anchor"></span></p>
+<p>Figure 5 Automatic data receiver.</p>
+<p>One significant challenge is that, by constantly changing parameters in real-time, the automatic receiver resets the system, creating a conflict with the stored presets. There would be no point in storing presets with the receiver connected.</p>
+<p>The [jl.] oscillator objects are modifications from [vs.] objects, which were modified to 48kHz. These objects were originally designed to work with a sample rate of 44.1 kHz. Another object replaced is [vs.dcblock] by [dcbloker~]<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a>.</p>
+<p>Because of these changes to the signal source, the next stages need to be adapted: the source, LFOs, amplitude, offset, delay time, compressor/limiter, feedback amount, and the addition and multiplication of signals. The last stage of the feedback system (the [jl. ] output) was then added. Its function is to add some saturation through the [sm.sallenkey2~] object. The following image shows how the entire feedback patch looks after the modifications.</p>
+<p><img src="images/codeSoundFig6.png" style="width:6.54167in;height:4.91633in" /></p>
+<p><span id="_Toc47056078" class="anchor"></span></p>
+<p>Figure 6 Feedback patch after modifications.</p>
+<p>To simplify the presentation of the instrument patch, the variable parameters are sent to the presentation mode where all the signal connections are hidden. In this mode the patch is ready to create sounds.</p>
+<p>With the sound source ready, the next step is to record the sound as samples. To achieve this there is a feature in max/msp called “quick record” in the menu extras.</p>
+<p>Some presets are stored in the patch. Sound samples are recorded in the folder ‘<a href="../_sounds/_codeSoundRecording/Rec-20.07.27-17h31m08s.aif">_sounds\_codeSoundRecording</a>’. Some editing was needed to refine the files.</p>
+<h2 class="Style2" id="the-visuals">The Visuals</h2>
+<p>The development of visuals is in Max through Jitter. Jitter is another tool that handles video and images for music and sound in real-time. As in the sound for this composition, the visuals are based on a particles system patch developed by Federico Foderaro<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a>.</p>
+<p>Two main patches used to generate the interactive images were explored:</p>
+<ul>
+<li><p>The first patch used was a basic particles system. This patch is a physical model where points, vectors and gravitational forces interact to create an electromagnetic field simulation. The architecture of this principle is based on the creation of a square filled with dots which are constantly attracted to the centre, while at the same time a new force (mouse cursor) repels the particles to create an electromagnetic field which overlaps and interacts to generate movement in the particles.</p></li>
+</ul>
+<ul>
+<li><p>The second patch is a more advanced version of the basic particles system. The main difference is that this system presents a 3D environment. Instead of a square, it generates a cube filled with a vast number of dots - while the previous generates a square of 250 x 250 points, the more advanced patch can contain a cube of 3000000 x 3000000 x 3000000 points or more if the CPU or GPU can support it.</p></li>
+</ul>
+<p><img src="images/codeSoundFig7a.png" style="width:3.10417in;height:1.79189in" /><img src="images/codeSoundFig7b.png" style="width:2.97565in;height:1.7905in" /></p>
+<p><span id="_Toc47056079" class="anchor"></span></p>
+<p>Figure 7 Particles systems two dimensions and three dimensions.</p>
+<p>The two patches are developed in Max/Jitter, with the advanced system requiring a [jit.gl] object to be modified in <a href="../experiments/patchsVisuals/particlesAdvance2.jxs">Java script</a>. The two modified patches are stored in the folder ‘<a href="../experiments/patchsVisuals/particlesAdvance2.maxpat">experiments/patchsVisuals</a>’. The second patch is highly CPU resource consuming, and although it can run alone, it cannot be used in a real-time situation or connected with other systems.</p>
+<h2 class="Style2" id="how-the-visual-system-works">How the visual system works</h2>
+<p>The ‘codeSound’ system is the fusion of two systems. Essentially, the system generates music by capturing the movements from the computer mouse (or trackpad) and translating these movements into changes in the sound and visuals particles system.</p>
+<p>The sound system constantly generates sound when it is activated. The interaction between user and system is controlled by the left mouse button. Every time the mouse button is pressed, the system automatically changes to one of the 40 sounds stored as presets.</p>
+<p>The visual system is controlled by the mouse movement. The main interface of the application provides buttons to resize the window and to activate and de-activate the full screen presentation. See Figure 9 .</p>
+<h2 class="Style2" id="examples-of-the-particles-system-in-action">Examples of the Particles System in Action</h2>
+<p>There are some video examples in the folder ‘<a href="../_videos/codeSoundTest/testParticlesSystem6.mp4">_videos/codeSoundTest</a>’. The examples show the particles system in action and how it reacts to the mouse interaction. An image of the system working is shown in the following image.</p>
+<p><img src="images/codeSoundFig8.png" style="width:5.90551in;height:3.32185in" /></p>
+<p><span id="_Toc47056080" class="anchor"></span>Figure 8 Capture of the particles system in action.</p>
+<p>The image above illustrates the particles system in action. Some particles are repelled away from the mouse, whilst the other particles are attracted to the centre. This conflict between repulsion and attraction creates a magnetic field simulation with the particles between the points generating a visually engaging cloud.</p>
+<h2 class="Style2" id="building-standalone-applications">Building standalone applications</h2>
+<p>The process for a standalone application is straightforward once the system has been tested and arranged in presentation mode. Max includes a useful feature called ‘Build Collective / Application…’ option which allows the user to compile the project. For this project, the two applications Audio and Visuals were unified, connecting them via user interaction through the mouse track.</p>
+<p>The final standalone application and the modified patches are attached in the folder ‘<a href="../codeSound.exe">codeSound/ codeSound.exe</a>’. The two separated patches are attached in the folder jl.objects as ‘<a href="../externals/jl.objects/jl.codeSoundInstrument.maxpat">jl.codeSoundInstrument.maxpat</a>’ and ’<a href="../externals/jl.objects/jl.codeSoundParticlesSystem.maxpat">jl.codeSoundParticlesSystem.maxpat’</a>.</p>
+<p><img src="images/codeSoundFig9.png" style="width:5.90551in;height:1.09641in" /></p>
+<p><span id="_Toc47056081" class="anchor"></span></p>
+<p>Figure 9 Interface codeSound standalone application.</p>
+<p><span id="_Toc48683577" class="anchor"></span></p>
+<h2 class="Style2" id="how-to-connect-both-sound-and-visual-systems">How to Connect Both Sound and Visual Systems</h2>
+<p>There are two ways to connect the systems:</p>
+<ul>
+<li><p>The first option is to record each system separately and then carry out postproduction audio and video editing to create the finished audio-visual composition.</p></li>
+<li><p>A second option is through a third object which allows the user to manipulate and control both systems. For this project a mouse trackpad is used, and with this third object inserted it is possible to create a complex system that controls both sound and visuals at the same time. In this second option it is also necessary to track information. Inside the visuals system there are two data information sources. One information source is provided by mouse position indicated by x and y coordinates on the screen, and the other source tracks matrix coordinates for each particle’s position on screen. The difference between each source is that one is provided by the mouse interaction and the second is provided by the points generated by the code on the screen. Both sources store data in a constantly updated data dump. The data can be packed and sent to an instrument or sound system to control any sound parameter (amplitude, frequency, wave offset, phase, distortion, feedback).</p></li>
+</ul>
+<p>One of the biggest problems encountered was the complexity of using the mouse as a controller because it meant that five information sources had to be incorporated in Max. Two of the sources relate to movement - horizontal and vertical delta - which provides mouse movement speed (positive and negative values, zero for no movement). Two sources relate to position (values position from left up screen position ‘x’ and ‘y’) and the final source is the button (mouse click). Although all parameters can be routed, the screen position alone gives a variable number list to send and control variable parameters. The other two can potentially be considered in an expanded system to change very specific values or states in a system.</p>
+<p>The following image explains what an information routing does. Although, the audio-visual system works it does not have a complete connection between image and sound because four oscillators are not connected to the mouse. The mouse button is connected to a random number generator (see Figure 10 ) and a preset object in the instrument. The preset object stores different values and state objects.</p>
+<p><img src="images/codeSoundFig10.png" style="width:5.70866in;height:6.06661in" /></p>
+<p><span id="_Toc47056082" class="anchor"></span></p>
+<p>Figure 10 Mouse integration to sound and visuals</p>
+<p>After experimentation, it was found that the most efficient and stable way to control audio and visuals was to take data from the mouse movement and sent the visuals patch and the click button to change the sounds.</p>
+<p>In resume, the instrument, the particles visual system, and the mouse are all connected. The mouse will send information simultaneously to the visuals and instrument. The movement of the mouse makes changes in the visuals while the click button changes the sound every time it is pressed.</p>
+<p>While Max/Msp and Jitter enables mouse interaction to visualize and manipulate the particles system, other software is necessary to record. In facilitating this, it is important to save computer resources because most of the video and CPU processing is being occupied rendering the particles system.</p>
+<p>OBS (Open Broadcaster Software) studio<a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a> was used to record the visual generated by the particles system. This free open-source software for video and live streaming enables the user to record the screen whilst interacting with the particles system. One of the main characteristics of this software is the ability to optimize the video settings to save system resources while processing.</p>
+<p>The video settings to record the particles system are shown in the following image.</p>
+<p><img src="images/codeSoundFig11.png" style="width:6.25984in;height:5.00273in" /></p>
+<p><span id="_Toc47056083" class="anchor"></span></p>
+<p>Figure 11 Video settings.</p>
+<p>Base and Output resolution is set up to optimize CPU resources, downscaling the output resolution from 2560x1440 to 928x522 and changing the FPS values from 60 to 30 while recording the screen. For compressed video files the obs-StreamX<a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a> plugin was installed. This plugin adds new sources to improve streaming and recording. Since version 7.0 the FFmpeg<a href="#fn13" class="footnote-ref" id="fnref13" role="doc-noteref"><sup>13</sup></a> coder is available. The following image shows Output option settings applied.</p>
+<p><img src="images/codeSoundFig12.png" style="width:6.25984in;height:4.97725in" /></p>
+<p><span id="_Toc47056084" class="anchor"></span></p>
+<p>Figure 12 Advance Output Visuals Recording Settings.</p>
+<p>OBS captures audio and video simultaneously from different sources the Figure 13 shows the settings applied for a basic multichannel <a href="../_videos/codeSoundPresentation/_codeSoundpresentation.mkv">Matroska .mkv</a> files. As a basic configuration for this project, <a href="../_videos/codeSoundPresentation/_codeSoundCompositionMOV.mov">QuickTime .mov</a> encoder has been applied. However, most of the files have been transformed in <a href="../_videos/codeSoundPresentation/_codeSoundCompositionMP4.mp4">MPEG4.mp4</a> using FFmpeg to compress the files.</p>
+<p><img src="images/codeSoundFig13.png" style="width:6.25984in;height:4.95437in" /></p>
+<p>Figure 13 Basic Multichannel Set Up</p>
+<p><span id="_Toc48683578" class="anchor"></span></p>
+<h2 class="Style2" id="the-composition">The Composition </h2>
+<p>With the sound and visual systems compiled and connected via the mouse, and with an efficient way of recording visuals and sound applied, there are two potential ways to compose and perform:</p>
+<ol type="1">
+<li><p>Recording audio and video separately using ‘quick record option’ and OBS. The recording can then be edited and compiled in DAW or Video editor (Reaper<a href="#fn14" class="footnote-ref" id="fnref14" role="doc-noteref"><sup>14</sup></a> o Davinci Resolve<a href="#fn15" class="footnote-ref" id="fnref15" role="doc-noteref"><sup>15</sup></a>). <a href="../_videos/_codeSoundComposition.mp4">_codeSoundComposition</a></p></li>
+<p><video width="640" height="480" controls src="../_videos/_codeSoundComposition.mp4" controls=""></video>
+<p>Video 1 codeSound: Past-Present-Future<p>
+<li><p>Recording audio and video integrated through an improvisation. OBS can be used to record audio and video, though it might need minor editing. <a href="../_videos/codeSoundImprovisations/_improCodeSound9.mp4">_improCodeSound9</a></p></li>
+<p><video width="640" height="480" controls src="../_videos/codeSoundImprovisations/_improCodeSound9.mp4" controls=""></video>
+<p>Video 2 Improvisation<p>
+</ol>
+<p>The first option will generate high audio and video quality, although it will take more time to generate a harmonic composition. While the second technique will generate an efficient audio visual result, it is important to point out that the second method will require practice before being able to achieve a harmonic composition and performance. An integrated button to record audio and video would potentially enhance the system.</p>
+<p>The codeSound composition presents an audio-visual composition of 20 minutes. For this composition the second method was used to record three different improvisations which were combined in Reaper. Three minor editing changes where applied including Cut silences and Fade In Fade Out for the beginning and end of each composition.</p>
+<p><span id="_Toc48683579" class="anchor"></span></p>
+<h1 class="Style1" id="theme-3---being-original">Theme 3 - Being Original</h1>
+<p>This chapter discusses the concept of originality in a modern technological context, and considers different means of protecting originality.</p>
+<h2 class="Style2" id="creativity-and-digital-technology">Creativity and Digital Technology</h2>
+<p>Bruce L Jacob (1996) defined two types of creativity: the flash out of the blue (inspiration/genius), and the process of incremental revision (hard work). He describes how the first “eureka” idea is new to the person who conceived it, while the “hard work” involves trying many different iterations and choosing one over the others. GIOTI (2020,7) described an aesthetic point of view for creativity and human-computer interaction. Both are related and are potentially useful in a contemporary scenario where composers use digital tools to create visuals for their own music. An algorithmic composition process allows the human composer to work more quickly and efficiently whilst expanding their tonal palette. Used effectively, human creativity combined with the use of intuitive computer systems can achieve efficient and aesthetically engaging compositions that - despite their foundation on pre-existent technology - should be considered ‘original’ pieces of work.</p>
+<h2 class="Style2" id="originality-and-copyright">Originality and Copyright</h2>
+<p>By definition<a href="#fn16" class="footnote-ref" id="fnref16" role="doc-noteref"><sup>16</sup></a>, for something to be original it must be special and interesting and not similar to anything or anyone else. Vaver and Sirinelli (Vaver &amp; Sirinelli, 2002), state that “most Copyright laws insist that a work be ‘original’ before it qualifies for Copyright protection. ‘Unoriginal’ works do not have Copyright.” So, is a computer-assisted artistic work novel enough to be described ‘original’, thereby making any Copyright claim legitimate?</p>
+<p>The three fields of expression - literary; scientific; and artistic - are protected by ‘The Berne Convention’, which establishes that countries who sign up to it must guarantee three basic principles:</p>
+<ol type="1">
+<li><p>Works originating in one of the Contracting States (that is, works the author of which is a national of such a State or works first published in such a State) must be given the same protection in each of the other Contracting States as the latter grants to the works of its own nationals (principle of "national treatment")</p></li>
+<li><p>Protection must not be conditional upon compliance with any formality (principle of "automatic" protection)</p></li>
+<li><p>Protection is independent of the existence of protection in the country of origin of the work (principle of "independence" of protection)</p></li>
+</ol>
+<p>The interpretation and application of the principles is becoming increasingly complicated in the modern world. In a recent convention The World Intellectual Property Organization<a href="#fn17" class="footnote-ref" id="fnref17" role="doc-noteref"><sup>17</sup></a> (WIPO – a specialised agency of the UN) addressed the issue of intellectual property and Artificial Intelligence (AI)<a href="#fn18" class="footnote-ref" id="fnref18" role="doc-noteref"><sup>18</sup></a>. The debate discussed whether AI should be considered a tool that assists the inventors, with the owner being the skilled practitioner who is generating art who should be claiming the Copyright. The other viewpoint is that AI is doing the work, with the person who invented the system and wrote the code being the one who put their effort and time into making AI work. This is particularly the case in code or software development where the creation and generation of code is the main part of the work.</p>
+<p>Examples of such new ideas and forms of expression include Jessica In (<a href="https://www.jessicain.net/">jessicain[.]net</a>) and her project ‘She Draws with Code’, where all her designs are based on code as the main source for her art, or Dara Etefaghi (<a href="https://www.tefdara.art/">tefdara[.]art</a>) who generates 3D audio visual systems, and game-like compositional systems. These exciting new projects at the vanguard of combining art and technology, together with the evolution of ideas and new forms of expression, highlight the fact that Copyright is becoming obsolete. It is therefore necessary to design new forms of Copyright to protect such artists.</p>
+<p>Ideas on new forms of Copyright protection are being developed. In the case of coding and software, Guadamuz González (Guadamuz González, 2004) pointed to the general public licenses (GPL) as a valid solution in the UK. Gonzalez suggests that “GPL is less restrictive than other types of licences or contracts and less prone to legal revisions”. GPL is based on the philosophy of free developing, where this freedom is not exempt from responsibility. Rather, it is more about a freedom to distribute, charge, change part of or completely, use, renew or reinvent with code. Developers are protected by GPL.</p>
+<h2 class="Style2" id="copyleft">Copyleft</h2>
+<p>The GNU General Public License, originally written by Richard Stallman, was the first and most prominent software ‘Copyleft’ license. Copyleft licenses give each person who possesses the work the same rights as the original author. Richard Stallman is credited with starting the free-software movement in 1983, when he launched the GNU Project, a collaborative effort to create a freedom-respecting operating system. Derived from the first formal definition of free software, Richard Stallman describes users of free software as having four essential freedoms<a href="#fn19" class="footnote-ref" id="fnref19" role="doc-noteref"><sup>19</sup></a>:</p>
+<ol type="1">
+<li><p>To run the program as you wish, for any purpose.</p></li>
+<li><p>To study how the program works, and change it. Access to the source code is a precondition for this.</p></li>
+<li><p>To redistribute copies so you can help others.</p></li>
+<li><p>To distribute copies of your modified versions to others.</p></li>
+</ol>
+<p>These principles establish new boundaries for a responsible use of code where developers have control over a source code and the freedom to share it.</p>
+<h2 class="Style2" id="creative-commons">Creative Commons</h2>
+<p>In digital media platforms such as vimeo, bandcamp, and flirk, Creative Commons licences are considered an alternative which allows creators to grant permissions on art expressions to copy, distribute, edit, remix and build upon them whilst crediting the source and creator. The next table shows some licences available under Creative Commons.</p>
+<p><span id="_Toc48500011" class="anchor"></span>Table 2 Creative Commons Licences</p>
+<table>
+<thead>
+<tr class="header">
+<th><strong>Licence</strong></th>
+<th><strong>Symbols</strong></th>
+<th><strong>Type of use</strong></th>
+<th><strong>Allowed</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Attribution</td>
+<td><img src="images/codeSoundCC1.png" style="width:0.91679in;height:0.32296in" /></td>
+<td>Commercial and non-commercial</td>
+<td><ul>
+<li><p>Copy</p></li>
+<li><p>Adapt or modify</p></li>
+<li><p>Redistribute (publish, display, publicly perform or communicate the work)</p></li>
+<li><p>License to others.</p></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>Attribution-Share Alike</td>
+<td><img src="images/codeSoundCC2.png" style="width:0.91679in;height:0.32296in" /></td>
+<td>Non-commercial only</td>
+<td><ul>
+<li><p>Copy</p></li>
+<li><p>Adapt or modify</p></li>
+<li><p>Redistribute (publish, display, publicly perform or communicate the work)</p></li>
+<li><p>License to others.</p></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td>Attribution-NoDerivs</td>
+<td><img src="images/codeSoundCC3.png" style="width:0.91679in;height:0.32296in" /></td>
+<td>Commercial and non-commercial</td>
+<td><ul>
+<li><p>Copy</p></li>
+<li><p>Redistribute (publish, display, publicly perform or communicate the work)</p></li>
+<li><p>License to others on the same terms as the original work.</p></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>Attribution-NonCommercial</td>
+<td><img src="images/codeSoundCC4.png" style="width:0.91679in;height:0.32296in" /></td>
+<td>Commercial and non-commercial</td>
+<td><ul>
+<li><p>Copy</p></li>
+<li><p>Adapt or modify</p></li>
+<li><p>Redistribute (publish, display, publicly perform or communicate the work)</p></li>
+<li><p>License to others.</p></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td>Attribution-NonCommercial-ShareAlike</td>
+<td><img src="images/codeSoundCC5.png" style="width:0.91679in;height:0.32296in" /></td>
+<td>Non-commercial only</td>
+<td><ul>
+<li><p>Copy</p></li>
+<li><p>Adapt or modify</p></li>
+<li><p>Redistribute (publish, display, publicly perform or communicate the work)</p></li>
+<li><p>License to others on the same terms as the original work.</p></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>Attribution-NonCommercial-NoDerivs</td>
+<td><img src="images/codeSoundCC6.png" style="width:0.91679in;height:0.32296in" /></td>
+<td>Non-commercial only</td>
+<td><ul>
+<li><p>Copy</p></li>
+<li><p>Redistribute (publish, display, publicly perform or communicate the work)</p></li>
+<li><p>License to others.</p></li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+<h2 class="Style2" id="protecting-originality-in-the-digital-age">Protecting Originality in the Digital Age</h2>
+<p>The three software and open-source licencing policies described above - Copyright (WIPO), Copyleft (GNU) and Creative Commons (CC) – should seek to protect originality and innovation. To keep up with the latest technological developments, devices such as Copyright or Copyleft must constantly evolve. However, some argue that Copyright is focussed more on protecting the interests of large corporations rather than tackling the complex issues around protecting originality.</p>
+<p>Copyleft has been shown be an excellent alternative to Copyright in the spheres of open-source or free software, promoting the creation of new software as long as it inherits the same rights once the code is modified. Even so, Copyleft is not perfect. Guadamuz González (Guadamuz González, 2004) notes that “although the originality requirement states that the work should not be copied in its entirety, courts have recognised that a certain amount of copying is acceptable.” The main difference to Copyright is that Copyleft promotes creativity without regard to the code of law. While Copyright and Copyleft look like opposite philosophies, CC offers an alternative. However, CC cannot replace Copyright and it is not their intention to do so – but rather to cover some of the gaps that Copyright does not address.</p>
+<h2 class="Style1" id="conclusions">Conclusions</h2>
+<p>By describing a series of processes that were developed to create an audio-visual system based on visual media and music code, this project has demonstrated how original sounds can be created from pre-existing technologies.</p>
+<p>Taking inspiration from audio-visual artists such as Alex Braga and Ryoichi Kurokawa, the underlying digital tools were adapted in an iterative process to deliver the desired standard of aesthetic specifications in the most efficient way, with the software being creatively employed to generate interacting sound and visuals that correspond to human computer input via a digital pointing device (mouse or trackpad).</p>
+<p>The system that has been developed and built has potentially many different applications such as: games software, art installations, cinematic visual effects, interactive audio-visual applications in museums, or even as a spontaneous feature in live music performances.</p>
+<p>The contents of this report and the conclusions listed below may serve as a template from which other creative artists can learn lessons and draw inspiration:</p>
+<ol type="i">
+<li><p>Integrated software has been used to process data in imaginative and original ways to create novel audio visual compositions and performance, but the creative impulse that is the ‘system input’ can only be provided by the human hand. This project provides the means of creating audio-visual works to anyone who has the ability to hold and move a digital pointing device, enabling them to explore the aesthetic pleasures of this field of art.</p></li>
+<li><p>To create a high quality interactive composition, some post-production editing is necessary. The codeSound System is designed as a linear system that works in a real-time situation, with a musician controlling the system as part of a live performance. Out of this context, i.e. used in a non-live situation or as a non-linear system, the system will require other software to record and edit. This is mainly because the efficiency obtained in the connection between sound and image contrast with the idea of a structure and a multilayer composition, which require the work to be split into two different stages - post-audio production and post-visual production. The final composition addresses a non-linear composition scenario, while the standalone application is an example of a linear system.</p></li>
+<li><p>Whilst it is possible to create an integrated composition and performance system, significant computer CPU resources will be required for it work effectively. The capabilities of the system could be expanded using external computer processing to split the digital process in two, increasing the potential of CPU and their GPU (graphic processing unit). However, although splitting the tasks into different steps increases quality, is time consuming to do so.</p></li>
+<li><p>It is feasible to generate a fully integrated system, but not a perfect sync between video and image. However, it is possible to connect audio and video by a peripheral (mouse, joystick, or trackpad) to control both systems. One potential enhancement could be the creation of a multichannel version of the software. Adaptation to a wireless technology is another possibility.</p></li>
+<li><p>The originality of the system design was the result of the imaginative transformation of existing technologies using ideas, knowledge and experience to create fresh and captivating audio-visual compositions. The techniques described in this paper could potentially be useful in combining other technologies with a sound system to provide innovative solutions to challenges in a broad range of scientific fields.</p></li>
+</ol>
+<h2 class="Style1" id="references">References</h2>
+<p>Bruce, J. (1996). Algorithmic composition as a model of creativity. <em>Organised Sound</em>, 157-165.Grosse, D. (2020, July 23). <em>Transcription: 0334 - Alex Braga</em>. Retrieved from http://www.darwingrosse.com/Guadamuz González, A. (2004). <em>Viral Contracts or Unenforceable Documents? Contractual Validity of Copyleft Licenes.</em> Retrieved from WIPO World Intelectual Property Organization: https://www.wipo.int/edocs/mdocs/Copyright/en/wipo_ip_cm_07/wipo_ip_cm_07_www_82577.pdfLechner, P. (2014). <em>Multimedia Programming Using Max/MSP and TouchDesigner.</em> Birmingham: Packt Publishing Ltd.Maggnusson, T. (2019). <em>Sonic Writing: Technologies of Material, Symbolic, and Signal Inscriptions.</em> New York: Bloomsbury Academic.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p><a href="https://www.youtube.com/watch?v=N0dBTvLs5DA">https://www.youtube.com/watch?v=N0dBTvLs5DA</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p><a href="https://push1stop.com/membrane-algorithmic-performance/">https://push1stop.com/membrane-algorithmic-performance/</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p><a href="https://github.com/bansky0/codeSound">https://github.com/bansky0/codeSound</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p><a href="http://www.darwingrosse.com/AMT/transcript-0334.html">http://www.darwingrosse.com/AMT/transcript-0334.html</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5" role="doc-endnote"><p><a href="http://opensoundcontrol.org/">http://opensoundcontrol.org/</a><a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6" role="doc-endnote"><p><a href="http://opensoundcontrol.org/osc-application-areas">http://opensoundcontrol.org/osc-application-areas</a><a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7" role="doc-endnote"><p><a href="https://www.youtube.com/watch?v=_XAK248_apY">https://www.youtube.com/watch?v=_XAK248_apY</a><a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8" role="doc-endnote"><p><a href="https://www.youtube.com/watch?v=bhtO4DsSazc">https://www.youtube.com/watch?v=bhtO4DsSazc</a><a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9" role="doc-endnote"><p><a href="https://www.jasch.ch/dl/objectlist.html">https://www.jasch.ch/dl/objectlist.html</a><a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10" role="doc-endnote"><p><a href="https://www.federicofoderaro.com/">https://www.federicofoderaro.com/</a>. The two tutorials followed are: ‘Build a Particle System’ and ‘How to create a GPU particle System using the GL3 Package’.<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11" role="doc-endnote"><p><a href="https://obsproject.com/">https://obsproject.com/</a><a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn12" role="doc-endnote"><p><a href="https://github.com/Xaymar/obs-StreamFX">https://github.com/Xaymar/obs-StreamFX</a><a href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn13" role="doc-endnote"><p><a href="https://ffmpeg.org/">https://ffmpeg.org/</a><a href="#fnref13" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn14" role="doc-endnote"><p><a href="https://www.reaper.fm/">https://www.reaper.fm/</a><a href="#fnref14" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn15" role="doc-endnote"><p><a href="https://www.blackmagicdesign.com/products/davinciresolve/">https://www.blackmagicdesign.com/products/davinciresolve/</a><a href="#fnref15" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn16" role="doc-endnote"><p><a href="https://dictionary.cambridge.org/dictionary/english/originality">https://dictionary.cambridge.org/dictionary/english/originality</a><a href="#fnref16" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn17" role="doc-endnote"><p><a href="https://www.wipo.int/members/en/">https://www.wipo.int/members/en/</a><a href="#fnref17" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn18" role="doc-endnote"><p><a href="https://www.wipo.int/export/sites/www/about-ip/en/artificial_intelligence/call_for_comments/pdf/ms_morocco_ompic.pdf">https://www.wipo.int/export/sites/www/about-ip/en/artificial_intelligence/call_for_comments/pdf/ms_morocco_ompic.pdf</a><a href="#fnref18" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn19" role="doc-endnote"><p><a href="https://www.gnu.org/philosophy/free-sw.html">https://www.gnu.org/philosophy/free-sw.html</a><a href="#fnref19" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body>
+</html>
